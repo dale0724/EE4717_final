@@ -14,7 +14,7 @@ if (!$conn) {
 // sql to create table
 $sql = "CREATE TABLE  Movies(
 MovieID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-MoiveName VARCHAR(100) NOT NULL,
+MovieName VARCHAR(100) NOT NULL,
 Poster VARCHAR(200) NOT NULL,
 ReleaseTime TIMESTAMP NOT NULL,
 ReleaseStatus varchar(20) NOT NULL,

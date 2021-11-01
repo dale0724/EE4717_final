@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简单实用影院座位在线选座js插件</title>
+<meta name="keywords" content="简单实用,影院座位,在线选座,js插件" />
+<meta name="description" content="简单实用影院座位在线选座js插件下载。js代码(www.jsdaima.com)" /> 
+<link rel="stylesheet" href="seats.css">
+</head>
+<body>
+<div class="movie-container">
+    <label>挑选电影</label>
+    <select id="movie">
+            <option value='8'>白蛇:缘起 - $8</option>
+            <option value='8'>罗小黑战记 - $8</option>
+            <option value='8'>送我上青云 - $8</option>
+            <option value='10'>大象席地而坐 - $10</option>
+        </select>
+</div>
+
+<ul class="showcase">
+    <li> 
+        <div class="seat"></div>
+        <small>可用</small>
+    </li>
+    <li>
+        <div class="seat selected"></div>
+        <small>选择</small>
+    </li>
+    <li>
+        <div class="seat occupied"></div>
+        <small>已选</small>
+    </li>
+</ul>
+
+<div class="container">
+    <div class="screen"></div>
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+</div> 
+
+<p class="text">您已选择 <span id="count">0</span> 个座位，价格为 $<span id="total">0</span></p>
+<script type="text/javascript" src="seats.js"></script>
+</body>
+</html>
