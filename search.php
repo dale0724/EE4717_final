@@ -12,47 +12,26 @@
         <img src="pics/logo.png">
         <a href="upcoming.php">Upcoming</a>
         <a href="now-showing.php">Now Showing</a>
-        <a class="active" href="home.php">Home</a>
+        <a href="home.php">Home</a>
     </header>
-    <div class="wrapper functionArea">
-        <div class="searchBox">
-            <form class="searchForm" method="POST" action="search.php">
-                <select name="TimeSlot">
-                    <option value="Morning">Morning</option>
-                    <option value="Afternoon">Afternoon</option>
-                    <option value="Evening">Evening</option>
-                </select>
-                <input type="hidden" name="test" value="1">
-                <input type="submit" id="searchButton" value="Search">
-            </form>
-        </div>
-        <div class="advertisement">
-            <a onclick="document.getElementById('advertise').submit()"><img src="pics/blackPanther.jpg"></a>
-            <form id="advertise" method="POST" action="theMovie.php">
-                <input type="hidden" name="MovieID" value="1">
-            </form>
-
-        </div>
-
-    </div>
-
-
     <div class="wrapper">
-        <h1 style="text-align: center; margin-bottom: 20px;">Trending</h3>
+        <h1 style="text-align: center; margin-bottom: 20px;">Search Result</h3>
             <?php
             $servername = "localhost";
             $username = "f32ee";
             $password = "f32ee";
             $dbname = "f32ee";
-
+            $timeSlot = $_POST['TimeSlot'];
+            $test = $_POST['test'];
+            # $timeSlot = "Morning";
             // Create connection
             $conn = mysqli_connect($servername, $username, $password, $dbname);
             // Check connection
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-
-            $sql = " SELECT MovieID,MovieName,Poster FROM Movies WHERE ReleaseStatus='1'";
+            // 
+            $sql = "SELECT * FROM Movies WHERE Movies.MovieID IN (SELECT MovieID from TimeSlotSeats where TimeSlot='$timeSlot')";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 // output data of each row

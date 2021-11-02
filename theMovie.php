@@ -8,11 +8,11 @@
 </head>
 
 <body style="margin: 0;">
-    <header class="topnav">
+<header class="topnav">
         <img src="pics/logo.png">
-        <a href="#contact">Upcoming</a>
-        <a href="#news">Now Showing</a>
-        <a class="active" href="#home">Home</a>
+        <a href="upcoming.php">Upcoming</a>
+        <a href="now-showing.php">Now Showing</a>
+        <a href="home.php">Home</a>
     </header>
     <div class="introduction wrapper">
         <?php
@@ -56,15 +56,34 @@
         } else {
             echo "sql error";
         }
+        $sql = " SELECT TimeSlot from TimeSlotSeats where MovieID=$target";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $timeslot = mysqli_fetch_assoc($result);
+        }
+    else{
+            $timeslot = null;
+        }
         mysqli_close($conn);
         ?>
-        <form id="bookForm" method="POST" action="seat.php">
+        <form id="bookForm" method="POST" action="seats.php">
             <label for="timeslot">Choose a time:</label>
-            <select id="timeSlot" name="timeList" form="bookForm">
-                <option value="Morning">Morning</option>
+            <select id="timeSlot" name="TimeSlot" form="bookForm">
+                <?php
+                    if(!$timeslot){
+                        echo "<option>no Time slot</option>";
+                    } 
+                    else{
+                        foreach($timeslot as $val){
+                            echo '<option value="'.$val.'">'.$val.'</option>';
+                        }
+                    }
+                ?>
+                <!-- <option value="Morning">Morning</option>
                 <option value="Afternoon">Afternoon</option>
-                <option value="Evening">Evening</option>
+                <option value="Evening">Evening</option> -->
             </select>
+            <input type="hidden" name="MovieID" value="<?php echo $target?>">
             <input type="submit" value="Book!">
         </form>
     </div>
