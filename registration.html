@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Registration page</title>
+	<link rel="stylesheet" href="myStyle.css" />
+</head>
+<body>	
+	<div class="signInRegister">
+		<h1 color="blue">Registration Page</h1> 
+		<form action="register.php" method=POST id="signUpForm">
+		Username:<br />
+		<input type=text id="username" name=username required><br /><br />
+		Password:<br />
+		<input type=password id="password" name=password required><br /><br />
+		Password confirmation:<br /> 
+		<input type=password id="password2" name=password2 required><br /><br />
+		<input type=reset name=reset value="Reset">
+		</form>
+		<button id="signUpButton">Sign Up</button>
+	</div>	
+<script type="text/javascript">
+	const password = document.getElementById("password");
+	const password2 = document.getElementById("password2");
+	const signUpButton = document.getElementById("signUpButton");
+	const signUpForm = document.getElementById("signUpForm");
+	const userName = document.getElementById('username')
+	signUpButton.onclick = ()=>{
+		if(!userName.value | !password.value | !password2){
+			alert("Please filled in all the fileds")
+			return
+		}
+		if(password.value==password2.value){
+			signUpForm.submit();
+		}else{
+			alert("Tow passwords are not the same!");
+		}
+	};
+</script>
+</body>
+</html>

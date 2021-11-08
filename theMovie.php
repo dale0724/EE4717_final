@@ -14,7 +14,7 @@
         <a href="now-showing.php">Now Showing</a>
         <a href="home.php">Home</a>
     </header>
-    <div class="introduction wrapper">
+    <div class="introduction wrapper">  
         <?php
         $servername = "localhost";
         $username = "f32ee";
@@ -50,14 +50,17 @@
             echo '<dd>' . $row["Descriptions"] . '</dd>';
             echo '</dl>';
             echo '</div>';
-            echo '<div class="trailer">';
-            echo $row["Trailer"];
-            echo '</div>';
+            // echo '<div class="trailer">';
+            // echo $row["Trailer"];
+            // echo '</div>';
         } else {
             echo "sql error";
         }
         $sql = " SELECT TimeSlot from TimeSlotSeats where MovieID=$target";
         $result = mysqli_query($conn, $sql);
+        if(!$result){
+            echo "sql error";
+        }
         if (mysqli_num_rows($result) > 0) {
             $timeslot = mysqli_fetch_assoc($result);
         }
@@ -79,13 +82,11 @@
                         }
                     }
                 ?>
-                <!-- <option value="Morning">Morning</option>
-                <option value="Afternoon">Afternoon</option>
-                <option value="Evening">Evening</option> -->
             </select>
             <input type="hidden" name="MovieID" value="<?php echo $target?>">
             <input type="submit" value="Book!">
         </form>
+        
     </div>
 
 </body>

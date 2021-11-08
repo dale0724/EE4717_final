@@ -3,6 +3,11 @@ $servername = "localhost";
 $username = "f32ee";
 $password = "f32ee";
 $dbname = "f32ee";
+session_start();
+if(!isset($_SESSION["valid_user"])){
+    header("Location: logIn.html", TRUE, 301);
+    exit();
+}
 $targetTimeSlot = $_POST["TimeSlot"];
 $targetMovieID = $_POST["MovieID"];
 // echo $targetTimeSlot."<br>";

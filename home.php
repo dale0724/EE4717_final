@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -16,6 +19,22 @@
     </header>
     <div class="wrapper functionArea">
         <div class="searchBox">
+            <?php
+                if(isset($_SESSION['valid_user']))
+                {
+                    echo '<form class="userForm" method="POST" action="userDetail.php">';
+                    echo '<h2>Hi, '.$_SESSION['valid_user'].'</h2><a href="logout.php">log out </a>';
+                    echo '<input type="submit" value="My tickets" >';
+                    echo '</form>';
+                }
+                else{
+                    echo ('
+                    <form class="userForm" method="POST" action="logIn.html">
+                    <input type="submit" value="Log in" >
+                    </form>
+                    ');
+                }
+            ?>
             <form class="searchForm" method="POST" action="search.php">
                 <select name="TimeSlot">
                     <option value="Morning">Morning</option>
@@ -31,9 +50,7 @@
             <form id="advertise" method="POST" action="theMovie.php">
                 <input type="hidden" name="MovieID" value="1">
             </form>
-
         </div>
-
     </div>
 
 
